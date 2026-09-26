@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Галерея работ — WoodCraftStudio, авторская мебель из массива · Москва</title>
+<meta name="description" content="Работы столярного ателье WoodCraftStudio: столы live-edge, кухни, лестницы и корпусная мебель из массива ценных пород. Галерея проектов.">
+<link rel="canonical" href="https://woodcraftstudio.ru/portfolio.html">
+<meta property="og:title" content="Галерея работ — WoodCraftStudio">
+<meta property="og:description" content="Столы live-edge, кухни, лестницы и мебель из массива. Галерея проектов ателье.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta name="theme-color" content="#14110e">
+<style>
+:root{
+  --coal:#14110e;--bark:#221c16;--bark-2:#2c241c;--bone:#ede6da;--bone-dim:#b3a794;
+  --oak:#c9a16b;--oak-deep:#a97f4a;--ember:#b5772e;--line:rgba(237,230,218,.13);--line-2:rgba(237,230,218,.22);
+  --radius:14px;--sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,"Times New Roman",serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--sans);background:var(--coal);color:var(--bone);font-size:17px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{margin:0;font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.01em}
+a{color:inherit;text-decoration:none}svg{display:block;max-width:100%}
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:var(--sans);font-size:1rem;font-weight:600;
+  cursor:pointer;padding:14px 24px;border-radius:999px;border:1.5px solid transparent;transition:.18s}
+.btn-ember{background:var(--ember);color:#160f07}.btn-ember:hover{background:#c98a3f}
+.btn-line{background:transparent;color:var(--bone);border-color:var(--line-2)}.btn-line:hover{border-color:var(--oak)}
+.btn-oak{background:var(--oak);color:#1a130a}.btn-oak:hover{background:#d8b27f}
+.icon{width:19px;height:19px;flex:0 0 auto}
+
+.site-head{position:sticky;top:0;z-index:60;background:rgba(20,17,14,.86);backdrop-filter:saturate(1.3) blur(11px);
+  box-shadow:0 1px 0 var(--line);padding-top:env(safe-area-inset-top,0px)}
+.head-row{display:flex;align-items:center;gap:20px;height:72px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:600;font-size:1.12rem}
+.brand .mark{width:34px;height:34px;flex:0 0 auto}
+.brand small{display:block;font-size:.6rem;font-weight:500;color:var(--bone-dim);letter-spacing:.05em}
+.head-row .btn{margin-left:auto}
+
+.phead{padding:64px 0 66px;background:radial-gradient(120% 100% at 80% 0%,#241d15,#14110e 60%)}
+.eyebrow{display:inline-flex;align-items:center;gap:11px;font-size:.8rem;letter-spacing:.04em;color:var(--oak);font-weight:600;margin-bottom:16px}
+.eyebrow::before{content:"";width:30px;height:1px;background:var(--oak)}
+.phead h1{font-size:clamp(2.1rem,4.6vw,3.4rem);max-width:18ch;line-height:1.05}
+.phead p{font-family:var(--sans);color:var(--bone-dim);font-size:1.1rem;max-width:54ch;margin:18px 0 0}
+
+.filters{position:sticky;top:72px;z-index:50;background:var(--coal);border-bottom:1px solid var(--line);padding:16px 0}
+.filters .wrap{display:flex;gap:9px;flex-wrap:wrap}
+.filter{padding:10px 18px;border:1.5px solid var(--line-2);border-radius:999px;background:transparent;font-family:var(--sans);
+  font-size:.93rem;font-weight:600;cursor:pointer;color:var(--bone-dim);transition:.18s}
+.filter:hover{border-color:var(--oak);color:var(--bone)}
+.filter.active{background:var(--oak);color:#1a130a;border-color:var(--oak)}
+
+.gallery{padding:40px 0 96px}
+.note{background:var(--bark);border:1px dashed var(--line-2);border-radius:var(--radius);padding:16px 20px;
+  color:var(--bone-dim);font-size:.92rem;margin-bottom:26px;font-family:var(--sans)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border-radius:var(--radius);overflow:hidden;position:relative;cursor:pointer;aspect-ratio:4/3;
+  background:var(--bark);transition:transform .25s ease,box-shadow .25s ease}
+.card:hover{transform:translateY(-4px);box-shadow:0 24px 44px -26px rgba(0,0,0,.7)}
+.card .wood{position:absolute;inset:0;background:linear-gradient(160deg,#2f2519,#1c150e)}
+.card .wood svg{position:absolute;inset:0;width:100%;height:100%;opacity:.62}
+.card .meta{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:2;background:linear-gradient(transparent,rgba(10,8,6,.9))}
+.card .meta .t{font-family:var(--serif);font-size:1.1rem}
+.card .meta .c{font-family:var(--sans);font-size:.8rem;color:var(--bone-dim);margin-top:2px}
+.card.hide{display:none}
+
+.pcta{background:var(--bark);padding:72px 0;text-align:center}
+.pcta h2{font-size:clamp(1.6rem,3.4vw,2.3rem);max-width:22ch;margin:0 auto}
+.pcta p{font-family:var(--sans);color:var(--bone-dim);margin:14px auto 26px;max-width:48ch}
+.pcta .row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+
+.foot{background:#0f0c09;color:var(--bone-dim);padding:40px 0 110px;font-size:.9rem;font-family:var(--sans)}
+.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.foot a:hover{color:var(--bone)}
+
+.lb{position:fixed;inset:0;z-index:100;background:rgba(8,6,4,.95);display:none;align-items:center;justify-content:center;padding:24px}
+.lb.open{display:flex}
+.lb-inner{max-width:920px;width:100%;background:var(--bark);border-radius:18px;overflow:hidden;position:relative;border:1px solid var(--line-2)}
+.lb-inner .stage{aspect-ratio:16/10;position:relative;background:linear-gradient(160deg,#2f2519,#1c150e)}
+.lb-inner .stage svg{position:absolute;inset:0;width:100%;height:100%;opacity:.6}
+.lb-cap{padding:18px 22px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.lb-cap .t{font-family:var(--serif);font-size:1.2rem}
+.lb-cap .c{font-family:var(--sans);color:var(--bone-dim);font-size:.9rem}
+.lb-close{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:12px;border:none;background:rgba(0,0,0,.4);color:#fff;font-size:1.5rem;cursor:pointer;z-index:3}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:48px;height:48px;border-radius:50%;border:none;background:rgba(0,0,0,.4);color:#fff;font-size:1.5rem;cursor:pointer;z-index:3}
+.lb-prev{left:14px}.lb-next{right:14px}
+
+.mbar{position:fixed;left:0;right:0;bottom:0;z-index:65;display:none;background:var(--bark);border-top:1px solid var(--line);
+  padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));grid-template-columns:repeat(3,1fr);gap:6px;font-family:var(--sans)}
+.mbar a{display:flex;flex-direction:column;align-items:center;gap:3px;padding:8px 4px;font-size:.74rem;font-weight:600;color:var(--bone);border-radius:12px}
+.mbar a .icon{width:22px;height:22px;color:var(--oak)}
+.mbar a.accent{background:var(--ember);color:#160f07}.mbar a.accent .icon{color:#160f07}
+
+@media (max-width:900px){.grid{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){
+  body{font-size:16px}.head-row .btn{display:none}.mbar{display:grid}.foot{padding-bottom:100px}
+  .filters{top:72px}.grid{grid-template-columns:1fr 1fr;gap:10px}.lb-nav{width:40px;height:40px}
+}
+@media (max-width:380px){.wrap{padding:0 16px}}
+@media (prefers-reduced-motion:reduce){.card,html{transition:none;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="wrap head-row">
+    <a href="index.html" class="brand">
+      <svg class="mark" viewBox="0 0 40 40" fill="none"><rect x="2" y="2" width="36" height="36" rx="9" fill="#221c16" stroke="#c9a16b" stroke-width="1.2"/><path d="M9 26c4-1 6-9 9-9s5 8 9 9M9 20c4-1 6-7 9-7s5 6 9 7" stroke="#c9a16b" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span>WoodCraftStudio<small>столярное ателье · Москва</small></span>
+    </a>
+    <a class="btn btn-ember" href="index.html#calc">Записаться в шоурум</a>
+  </div>
+</header>
+
+<section class="phead">
+  <div class="wrap">
+    <span class="eyebrow">Галерея работ</span>
+    <h1>Изделия из массива, вышедшие из нашего цеха</h1>
+    <p>Столы live-edge, кухни, лестницы и корпусная мебель из ценных пород дерева. Выберите тип изделия, чтобы посмотреть похожие проекты.</p>
+  </div>
+</section>
+
+<div class="filters">
+  <div class="wrap" id="filters">
+    <button class="filter active" data-cat="all">Все работы</button>
+    <button class="filter" data-cat="Столы">Столы live-edge</button>
+    <button class="filter" data-cat="Кухни">Кухни и корпусная</button>
+    <button class="filter" data-cat="Лестницы">Лестницы</button>
+    <button class="filter" data-cat="Столярка">Столярка</button>
+  </div>
+</div>
+
+<section class="gallery">
+  <div class="wrap">
+    <div class="note">Галерея готова к наполнению: замените плитки-заглушки на реальные фотографии изделий — они размечены по типам и подключены к фильтрам и просмотру.</div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="pcta">
+  <div class="wrap">
+    <h2>Хотите такое из вашего слэба? Спроектируем и сделаем</h2>
+    <p>Бесплатный эскиз и консультация. Приходите в шоурум Artplay или на экскурсию на производство.</p>
+    <div class="row">
+      <a class="btn btn-ember" href="index.html#calc">Оставить заявку</a>
+      <a class="btn btn-line" href="tel:+79399001471">Позвонить +7 939 900-14-71</a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© WoodCraftStudio · Artplay, Нижняя Сыромятническая, 10с2</span>
+    <span><a href="index.html">На главную</a> · <a href="mailto:info@woodcraftstudio.ru">info@woodcraftstudio.ru</a></span>
+  </div>
+</footer>
+
+<nav class="mbar" aria-label="Быстрые действия">
+  <a class="accent" href="tel:+79399001471"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.6a2 2 0 0 1-.5 2.1L8 11.5a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.8.3 1.7.5 2.6.6a2 2 0 0 1 1.7 2z"/></svg>Позвонить</a>
+  <a href="mailto:info@woodcraftstudio.ru"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>Написать</a>
+  <a href="index.html#works"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3z"/><path d="M3 15l5-5 4 4 5-6 4 5"/></svg>На главную</a>
+</nav>
+
+<div class="lb" id="lb" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Закрыть">×</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Предыдущая">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Следующая">›</button>
+  <div class="lb-inner">
+    <div class="stage" id="lbStage"></div>
+    <div class="lb-cap"><span class="t" id="lbTitle"></span><span class="c" id="lbCat"></span></div>
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+  var items=[
+    {title:"Обеденный стол из дуба, live-edge", cat:"Столы"},
+    {title:"Стол-река с эпоксидной вставкой", cat:"Столы"},
+    {title:"Кухня из массива ясеня", cat:"Кухни"},
+    {title:"Лестница из дуба на металлокаркасе", cat:"Лестницы"},
+    {title:"Стеллаж из ореха", cat:"Кухни"},
+    {title:"Барная стойка из карагача", cat:"Столярка"},
+    {title:"Рабочий стол из слэба", cat:"Столы"},
+    {title:"Кухонный остров из массива", cat:"Кухни"},
+    {title:"Маршевая лестница с забежными", cat:"Лестницы"},
+    {title:"Панно из среза дерева", cat:"Столярка"},
+    {title:"Журнальный стол live-edge", cat:"Столы"},
+    {title:"Ресепшен из массива", cat:"Столярка"}
+  ];
+  var woodSVG='<svg viewBox="0 0 320 220" preserveAspectRatio="xMidYMid slice" fill="none" stroke="#c9a16b" stroke-width="1.3">'+
+    '<path d="M0 70c60-10 200-6 320 2M0 110c70-8 180-4 320 4M0 150c50-8 220-4 320 2" opacity=".8"/>'+
+    '<path d="M0 90c80-8 200-4 320 4" stroke="#a97f4a" opacity=".7"/>'+
+    '<ellipse cx="90" cy="120" rx="20" ry="9" stroke="#8f6a3d" stroke-width="2" opacity=".7"/>'+
+    '<ellipse cx="90" cy="120" rx="8" ry="3.5" stroke="#8f6a3d" opacity=".7"/></svg>';
+
+  var grid=document.getElementById("grid");
+  grid.innerHTML=items.map(function(it,i){
+    return '<div class="card" data-cat="'+it.cat+'" data-i="'+i+'"><div class="wood">'+woodSVG+'</div>'+
+           '<div class="meta"><div class="t">'+it.title+'</div><div class="c">'+it.cat+' · заменить фото</div></div></div>';
+  }).join("");
+
+  var filters=document.getElementById("filters");
+  filters.addEventListener("click", function(e){
+    var b=e.target.closest(".filter"); if(!b) return;
+    filters.querySelectorAll(".filter").forEach(function(f){ f.classList.remove("active"); });
+    b.classList.add("active"); var cat=b.dataset.cat;
+    grid.querySelectorAll(".card").forEach(function(c){ c.classList.toggle("hide", cat!=="all" && c.dataset.cat!==cat); });
+  });
+
+  var lb=document.getElementById("lb"), stage=document.getElementById("lbStage"),
+      lbTitle=document.getElementById("lbTitle"), lbCat=document.getElementById("lbCat"), cur=0;
+  function vis(){ return Array.prototype.filter.call(grid.querySelectorAll(".card"), function(c){ return !c.classList.contains("hide"); }); }
+  function show(i){ var cards=vis(); if(!cards.length) return; cur=(i+cards.length)%cards.length;
+    var it=items[parseInt(cards[cur].dataset.i,10)];
+    stage.innerHTML=woodSVG; lbTitle.textContent=it.title; lbCat.textContent=it.cat+" · демо-плитка, заменить на фото";
+    lb.classList.add("open"); lb.setAttribute("aria-hidden","false"); document.body.style.overflow="hidden"; }
+  function close(){ lb.classList.remove("open"); lb.setAttribute("aria-hidden","true"); document.body.style.overflow=""; }
+  grid.addEventListener("click", function(e){ var c=e.target.closest(".card"); if(!c) return; show(vis().indexOf(c)); });
+  document.getElementById("lbClose").addEventListener("click", close);
+  document.getElementById("lbPrev").addEventListener("click", function(){ show(cur-1); });
+  document.getElementById("lbNext").addEventListener("click", function(){ show(cur+1); });
+  lb.addEventListener("click", function(e){ if(e.target===lb) close(); });
+  document.addEventListener("keydown", function(e){ if(!lb.classList.contains("open")) return;
+    if(e.key==="Escape") close(); else if(e.key==="ArrowLeft") show(cur-1); else if(e.key==="ArrowRight") show(cur+1); });
+})();
+</script>
+</body>
+</html>
